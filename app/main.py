@@ -19,6 +19,10 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+async def root():
+    return {"message": "API running"}
+
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "model_loaded": predictor.model is not None}
